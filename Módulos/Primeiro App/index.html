@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+
+
+<div id="app">
+    <h1>Primeiro App</h1>
+    <p>Bem vindo {{nome}} </p>
+    <p> {{bemVindo()}} </p>
+    <button v-on:click="entrar ('Dev') ">Entrar</button>
+    <button v-on:click.once="entrar ('Dev') ">Entrar</button>
+    
+    <a v-bind:href=" canal "> canal Youtube</a>
+    
+</div>
+
+<script>
+    // div#app = div com id
+    // div. app = cria uma classe dento do id 
+    // div#app.aluno = encadeia tudo acima 
+
+    // O Vue é um intermediário entre o que é escrito no HTML e o qu eé jogado no browser
+    // Criei aqui uma instância do Vue 
+    // passei as configurações para ele que irá interpretar a partr do app dentro da div  ( id="app")
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                nome: "User",
+                canal: 'https://www.youtube.com/'
+            }
+        },
+        // Para acessar o nome em um estado ( data) preciso ir através da instância do Vue (this. + nome da propriedade)  
+        methods: {
+            bemVindo() {
+                return "Testando chamado de métodos" + ", Olá " + this.nome;
+            },
+
+            entrar(nomeDev){
+                this.nome = nomeDev
+            }
+        }
+        // v- : diretiva relacionada ao Vue 
+        // v-bind : ligação entre o html e a instância do Vue 
+        // v-on: para eventos de ação 
+
+    })
+</script>
