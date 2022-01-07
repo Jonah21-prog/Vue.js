@@ -1,0 +1,41 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <h1> {{nome}} </h1>
+    <p>Nome grande: {{resultadoNome}} </p>
+    <button v-on:click="soma">Soma #</button>
+
+    <hr>
+
+    <h1> {{numero}} </h1>
+    <button v-on:click="numero++">Somar numero </button>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                nome: "Dev",
+                numero: 10,
+            }
+        },
+        methods: {
+            soma() {
+                this.nome += '#';
+            },           
+        },
+
+        computed: {
+            resultadoNome() {
+                return this.nome.length >= 10 ? " Maior  que 10 letras! " : " Menor que 10 letras!"
+                // Em uma propriedade computada se faz necessário o retorno de uma resposta síncrona 
+            }
+        },
+        whatc:{
+            nome(novo, antigo){
+                //Sempre que a variável nome mudar ele irá chamar esse whatc!
+            }
+        }
+    })
+</script>
