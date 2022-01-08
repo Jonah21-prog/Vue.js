@@ -1,0 +1,35 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <h1 v-if="auth" >Bem vindo {{usuario}} </h1>
+    <h1 v-else-if="visitante">Usuário visitante</h1>
+    <p v-else >Você está logado como visitante</p>
+
+    <button @click="auth = !auth" >
+        {{auth ? 'Deslogar' : 'Entrar'}}
+    </button>
+
+    <button @click="visitante = !visitante">
+        {{visitante ? "Deslogar do visitante" : "Entrar como visitante"}}
+    </button>
+
+    <h2 v-show="visitante" >Estudando Vue.js na prática</h2>
+</div>
+
+<script>
+    // @click : v-on:click de forma reduzida 
+    // v-if : Estrutura condicional " se isso, faça isso"
+    // v-else-if : Estrutura condicional "Se não, se isso, faça isso"
+    // v-else : Estrutura condicional "se não, faça isso"
+    // v-show : Estrutura condincional que demanda menos custo computacional 
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                usuario: "Dev",
+                auth: false,
+                visitante: false
+            }
+        }
+    })
+</script>
