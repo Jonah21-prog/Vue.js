@@ -1,2 +1,4 @@
-# Vue.js
-Estudos em Vue.js 
+# Estudos em Vue.js
+***
+## __Primeiro Projeto__
+ - [ ] _Cronometro_
